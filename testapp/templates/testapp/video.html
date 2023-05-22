@@ -1,0 +1,69 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../../../static/bower_components/jquery/dist/jquery.min.js"> </script>
+    <title>video.html</title>
+    <!--与css和js链接-->
+    <link rel="stylesheet" href="../../../static/css/video.css">
+    <style type="text/css">
+        label{display:inline;float:left;width:100px;}
+        input,textarea{width:340px;}
+        textarea{height:80px;}
+        input[type=submit]{width:120px;margin-left:300px;}
+    </style>
+</head>
+<body>
+    {% load static %}
+    <div class="title-div">
+        <h1>{{course.title}} </h1>
+    </div>
+    <div class="sign-div">
+        <video height=508 width=900 style="border-radius: 16px; border-style: none; outline: none;" controls autoplay loop muted poster={{ course.cover_url }}>
+            <source src={{ course.video_url }}>
+        </video>
+    </div>
+    <div class="div">
+        <h1>&#127759课程简介</h1>
+        <div class="abs-div">
+            <p>
+                {{course.profile}}
+            </p>
+        </div>
+        <h1>&#9997课程评论</h1>
+        <div class="ori-div">
+            {% for comment in comment_list %}    {# 循环展示评论的数据 #}
+                <div style="background-color: #ffffff;line-height: 1;border-radius: 10px;margin-bottom: 5px;margin-top: 7px">
+                    <p style="height: 5px;background-color: #00cc00;border-radius: 10px;margin-top: 7px">
+                    <p style="font-size: 20px;font-weight: bolder;height:25px;margin-bottom: 0;margin-top: 0;padding-left:5px">{{ comment.comment_author.name }}</p>
+                    <p style="font-size: xx-small;color: #545454;height: 10px;margin-top: 0;padding-left:5px">{{ comment.comment_time }}</p>  {# 在此处定义一个回复按钮，用户实现子评论,并且自定义属性username和pk，用于下面回复功能的实现 #}
+                    <p style="padding-left:5px;line-height: 1.2">{{ comment.comment_content }}</p>
+                    <br>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="comment_post">
+        <input class="input-text"  type="text" name="username" placeholder="在这里写下你的精彩发言吧！">
+        <p style="left:57%;"><input class="input-btn" type="submit" style="font-size:15px;font-weight:900" value="提交"></p>
+    </div>
+    <script>
+        {# 提交评论按钮的点击事件 #}
+        $(".comment_post p input").click(function(){
+            $.ajax({
+                url: '/comment_control/',
+                type: 'post',
+                data: {
+                    comment_content: $(".input-text ").val(),  {# 提交的数据内容data #}
+                    video_id: {{ course.id }},
+                },
+                success: function (res){            {# 本例中返回的数据仅仅用于在控制台打印而已 #}
+                    $(".input-text").val("")        {# 提交完成后，清空评论输入框的内容 #}
+                }
+            })
+        })
+    </script>
+</body>
+</html>

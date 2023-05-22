@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome</title>
+    <!--路径-->
+    <link rel="stylesheet" href="../../../static/css/index.css">
+</head>
+
+<body>
+    <div class="div_out">
+        <div class="wrapper" id="wrap">     <!-- 轮播图 -->
+            <img class="img_wrap" src="../../../static/images/index_Carousel/pic-1.jpg" alt="">
+            <img class="img_wrap" src="../../../static/images/index_Carousel/pic-2.jpg" alt="">
+            <img class="img_wrap" src="../../../static/images/index_Carousel/pic-3.jpg" alt="">
+            <img class="img_wrap" src="../../../static/images/index_Carousel/pic-4.jpg" alt="">
+            <img class="img_wrap" src="../../../static/images/index_Carousel/pic-5.jpg" alt="">
+        </div>
+        <!-- 搜索框 -->
+        <form id="form" action="/search/" method="get">
+            <div class="search_input" id="fixed_roll">
+                <div class="search_box">
+                    <input class="input_text" name="q" type="text" placeholder="请输入课程名搜索">
+                    <button type="submit" class="search_button">搜 索</button>
+                </div>
+            </div>
+        </form>
+        <div class="container" >     <!-- 具体视频部分 -->
+            <main id="course-container">
+                <ul class="course-list">
+                    {% for video in videos %}
+                        <!-- video-item start -->
+                        <li class="course-item">
+                            <a href={% url 'video_sign' video.id %}>
+                                <img class="course-img" src="{{ video.cover_url }}"
+                                     alt="{{ video.title }}">
+                                <div class="course-content">
+                                    <p class="course-info">{{ video.title }}</p>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- course-item end -->
+                    {% endfor %}
+                </ul>
+            </main>
+        </div>
+    </div>
+
+    <!-- 底部菜单 -->
+    <div class="bottom">
+        <ul class="bootomNav">
+            <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[开发团队]&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a href="#">赵彦平</a></li>
+            <li class="point">/</li>
+            <li><a href="#">刘怡然</a></li>
+            <li class="point">/</li>
+            <li><a href="#">吕天成</a></li>
+        </ul>
+    </div>
+    <!-- <hr> -->
+    <div class="bottom2">
+        <br>
+        <p>联系地址：同济大学嘉定校区</p>
+        <p>上海市嘉定区曹安公路4800号</p>
+        <p>Copyright @ 2023 同济大学版权所有</p>
+        <br>
+    </div>
+    <script src="../../../static/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../../static/js/index.js"></script>
+    <script type="text/javascript">
+        function htmlScroll() {
+            var top = document.body.scrollTop || document.documentElement.scrollTop;
+            if (elFix.data_top < top) {
+                elFix.style.position = 'fixed';
+                elFix.style.top = 0;
+                elFix.style.left = elFix.data_left;
+            }
+            else {
+                elFix.style.position = 'static';
+            }
+        }
+
+        function htmlPosition(obj) {
+            var o = obj;
+            var t = o.offsetTop;
+            var l = o.offsetLeft;
+            while (o = o.offsetParent) {
+                t += o.offsetTop;
+                l += o.offsetLeft;
+            }
+            obj.data_top = t;
+            obj.data_left = l;
+        }
+
+        var oldHtmlWidth = document.documentElement.offsetWidth;
+        window.onresize = function () {
+            var newHtmlWidth = document.documentElement.offsetWidth;
+            if (oldHtmlWidth == newHtmlWidth) {
+                return;
+            }
+            oldHtmlWidth = newHtmlWidth;
+            elFix.style.position = 'static';
+            htmlPosition(elFix);
+            htmlScroll();
+        }
+        window.onscroll = htmlScroll;
+        var elFix = document.getElementById('fixed_roll');
+        htmlPosition(elFix);
+    </script>
+</body>
+</html>

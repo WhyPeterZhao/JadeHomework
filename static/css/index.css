@@ -1,0 +1,446 @@
+body{
+    /*margin 表示边框外面留 的 空白，后面 的0 表示不留空白。 
+        padding 表示边框内部带内容之间填充，后面 的0 表示不留空白。 */
+    margin:0;
+    padding:0;
+    background-color: rgb(255, 255, 255);
+}
+
+ /*这个是中间大框框的定位，使其位于中心*/
+.div_out {
+    top: 0%;
+    left: 0%;
+    background-color: rgb(255, 255, 255);
+}
+
+.container{
+    height:1200px;
+    overflow-y: scroll;
+}
+
+
+.wrapper{
+    position: relative;
+    /*3d效果*/
+    transform-style: preserve-3d;
+    perspective: 800px;
+    height:160px;
+    margin-top:200px;
+}
+
+.wrapper img{
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    width: 300px;
+    height: 200px;
+    margin-left: -150px;
+    margin-top: -100px;
+    border-radius: 8px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.search_input{
+    height:57px;
+    width:100%;
+    background-color: #ffffff;
+    z-index: 1000;
+}
+
+.search_box{
+    margin: 10px auto;
+    width:600px;
+    height:42px;
+    border-radius: 30px;
+    border: none;
+    background-image: linear-gradient( 135deg, #efefef 40%, #1904E5 100%);
+    background-size: 200%;
+    padding: 0 5px 0 20px;
+    outline: none;
+}
+
+.input_text{
+    width:501px;
+    height:40px;
+    background-color:transparent;
+    color: #ffffff;
+    outline: none;
+    border: #ffffff;
+    font-size: 16px ;
+}
+
+.search_box:focus-within{
+    background-position: right;
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+.search_button{
+    width:90px;
+    height:34px;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    border-radius: 21px;
+    color: #7842e3;
+    text-align: center;
+    font-weight: bold;
+    font-size:15px ;
+}
+
+.search_button:hover{
+    box-shadow: 0 10px 20px 0 rgba(47,55,213,0.3);
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+#course-container {
+    flex: 1;    /* 所有弹性盒模型对象的子元素都有相同的长度，忽略它们内部的内容 */
+    z-index: 99;
+}
+
+#course-container .course-list {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 20px;
+    List-style:none;
+}
+
+#course-container .course-list .course-item {
+    margin: 20px;
+    width: 245px;
+    height: 230px;
+    position: relative;
+    text-align: center;
+    background-color: #f3f3f3;
+    border-radius: 20px 20px 20px 20px;
+    border-width: 5px;
+}
+
+.course-list .course-item .course-img {
+    width: 245px;
+    height: 146px;
+    border-radius: 20px 20px 0 0;
+    border-width: 5px;
+}
+
+.course-list .course-item .course-content {
+    padding: 0 10px;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.course-list .course-item:hover {
+    box-shadow: 0 4px 8px rgb(133, 79, 245);
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.course-item .course-content .course-info {
+    font-size: 16px;
+    line-height: 1.5;
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.course-item .course-content .course-price span{
+    font-size: 14px;
+}
+.course-item .course-content .course-price.free {
+    color: green;
+    float: right;
+}
+/* ========== course-container  end =========  */
+:root {
+    --page_lineMargin: 150px;
+    /* 导航栏部分 */
+    --nav_height: 60px;
+    --nav_logoMarginLeft: 10%;
+    --nav_logoMarginTop: 10px;
+    --nav_textWidth: 110px;
+    --nav_loginMarginTop: 10%;
+    --nav_backgroudColor: rgb(237, 240, 245);
+    --nav_selectColor: rgb(46, 158, 253);
+    --nav_fontSize: 16px;
+    --nav_fontTypeface: FangSong;
+    --nav_fontWeight: bold;
+    /* 主体内容部分 */
+    --body_lineMargin: 199px;
+    /* 子标题字体 */
+    --body_Subtitle_fontTypeface: FangSong;
+    --body_Subtitle_fontSize: 28px;
+    --body_Subtitle_fontWeight: bold;
+    /* 额外内容部分 */
+    --extra_width: 100%;
+    --extra_rightPadding: 15px;
+    /* 二级标题 */
+    --extra_h2_fontTypeface: FangSong;
+    --extra_h2_fontSize: 28px;
+    --extra_h2_fontWeight: bold;
+    /* 签约部分文字 */
+    --extra_contract_fontTypeface: FangSong;
+    --extra_contract_fontSize_a: 18px;
+    --extra_contract_fontSize_p: 14px;
+    --extra_contract_fontWeight_a: bold;
+    /* 底部部分 */
+    --bottom_backgroundColor: rgb(133, 133, 133);
+}
+
+/* 整体缩进部分 */
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+div.nav {
+    /* 行内元素垂直居中*/
+    height: var(--nav_height);
+    line-height: var(--nav_height);
+    text-align: center;
+    background-color: var(--nav_backgroudColor);
+}
+
+.nav ul {
+    width: auto;
+    list-style-type: none;
+    white-space: nowrap;
+    margin-right: 10%;
+    padding: 0;
+}
+
+.nav li {
+    /* 使li内容横向浮动，即横向排列  */
+    float: right;
+    position: relative;
+}
+
+.nav li a {
+    margin-right: 2%;
+    /* 设置链接内容显示的格式*/
+    /* 把链接显示为块元素可使整个链接区域可点击 */
+    display: block;
+    color: black;
+    /* 去除下划线 */
+    text-decoration: none;
+    width: var(--nav_textWidth);
+    /* 字体 */
+    font-family: var(--nav_fontTypeface);
+    font-size: var(--nav_fontSize);
+    font-weight: var(--nav_fontWeight);
+}
+
+.nav li a:hover {
+    /* 鼠标选中时背景颜色 */
+    background-color: var(--nav_selectColor);
+}
+
+/* logo：设置位置、留白 */
+
+li.logo {
+    float: left;
+    margin-left: var(--nav_logoMarginLeft);
+    margin-top: var(--nav_logoMarginTop);
+    position: relative;
+}
+
+/* 登录框，设置字体、边框*/
+
+.nav li input {
+    /* 边框 */
+    border-color: rgb(76, 178, 252);
+    border-style: ridge;
+    border-width: 1px;
+    color: rgb(76, 178, 252);
+    /* 定位 */
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 35px;
+    /* 字体 */
+    font-family: var(--nav_fontTypeface);
+    font-size: var(--nav_fontSize);
+    font-weight: var(--nav_fontWeight);
+}
+
+/* 被选中栏目的样式 */
+
+li.selected {
+    background-color: var(--nav_selectColor);
+}
+
+div.top {
+    height: 650px;
+}
+
+.top img {
+    width: 100%;
+}
+
+/* 主体内容部分 */
+
+div.body {
+    height: 1850px;
+    margin-left: var(--body_lineMargin);
+    margin-right: var(--body_lineMargin);
+}
+
+/* 基础架构部分 */
+
+div.body div.infrastructure {
+    /* 字体 */
+    font-family: var(--body_Subtitle_fontTypeface);
+    font-size: var(--body_Subtitle_fontSize);
+    font-weight: var(--body_Subtitle_fontWeight);
+}
+
+div.infrastructure p.subtitle {
+    width: 100%;
+    text-align: right;
+}
+
+div.body div.security {
+    /* 字体 */
+    font-family: var(--body_Subtitle_fontTypeface);
+    font-size: var(--body_Subtitle_fontSize);
+    font-weight: var(--body_Subtitle_fontWeight);
+}
+
+div.security p.subtitle {
+    width: 100%;
+    text-align: left;
+}
+
+div.extra {
+    width: var(--extra_width);
+}
+
+div.extraLeftPadding {
+    padding-right: var(--extra_rightPadding);
+}
+
+.extra p.h2 {
+    /* 字体 */
+    font-family: var(--extra_h2_fontTypeface);
+    font-size: var(--extra_h2_fontSize);
+    font-weight: var(--extra_h2_fontWeight);
+}
+
+/* 签约部分 */
+
+.extra div.contract {
+    position: relative;
+    border: none;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.contract ul {
+    position: relative;
+    left: 0;
+    padding: 0px;
+    margin: 0px;
+}
+
+.contract ul li {
+    list-style: none;
+    float: left;
+    width: 100%;
+    height: 30px;
+    padding-bottom: 30px;
+}
+
+.contract ul li a {
+    font-size: var(--extra_contract_fontSize_a);
+    font-family: var(--extra_contract_fontTypeface);
+    font-weight: var(--extra_contract_fontWeight_a);
+}
+
+.contract ul li p {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: var(--extra_contract_fontSize_p);
+    font-family: var(--extra_contract_fontTypeface);
+    /* font-weight: var(--extra_contract_fontWeight_p); */
+    color: rgba(000, 000, 000, 0.6);
+}
+
+p.extraFooter {
+    font-family: var(--extra_contract_fontSize_p);
+}
+
+div.bottom {
+    background-color: #9d9d9d;
+    height: 80px;
+}
+
+div.bottom ul.bootomNav {
+    list-style-type: none;
+    margin-left: 31%;
+}
+
+div.bottom ul.bootomNav li {
+    float: left;
+    position: relative;
+    width: auto;
+}
+
+/* 设置间隔点 */
+div.bottom ul.bootomNav li.point {
+    margin-right: 20px;
+    margin-left: 20px;
+
+    margin-top: 40px;
+    color: white;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+div.bottom ul.bootomNav li a {
+    margin-top: 40px;
+    /* 设置链接内容显示的格式*/
+    /* 把链接显示为块元素可使整个链接区域可点击 */
+    display: block;
+    color: white;
+    /* 去除下划线 */
+    text-decoration: none;
+    width: auto;
+    /* 字体 */
+    font-family: var(--nav_fontTypeface);
+    font-size: var(--nav_fontSize);
+    font-weight: var(--nav_fontWeight);
+}
+
+div.bottom2 {
+    background: linear-gradient(135deg, #34ac40, #2c8ae8, #dc47cd, #e7e373);
+    background-size: 500%;
+    animation: bgAnimation 12s linear infinite;
+    height: 150px;
+    margin-top: 1px;
+}
+
+.bottom2 p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+@keyframes bgAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+a {text-decoration: none}

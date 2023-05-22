@@ -1,0 +1,222 @@
+.title-div{
+    position: absolute;
+    top: 1%;
+    left: 6%;
+}
+.author-div{
+    position: absolute;
+    top: 1%;
+    right: 21%;
+}
+/*视频框*/
+.sign-div {
+    width: 900px;
+    height: 500px;
+     /* 实现整个框居中效果 */
+     position: absolute;
+     /*top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置
+     translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置*/
+     top: 12%;
+     left: 5%;
+    /*让文本居中*/
+    text-align: center;
+    /*在border外没有线*/
+    outline: none;
+    /*最外面的边框颜色*/
+    border: 1px solid rgba(50, 91, 144, 0.2);
+    /*这里形成的是一个圆角框*/
+    border-radius: 16px;
+    /*整个框框里的背景颜色*/
+    background-color: rgba(50, 91, 144, 0.2);
+    /*定义如何计算一个元素的总宽度和总高度，是否包含内边距和边框*/
+    /*所以这里是将边框也计算在上述的宽高之中*/
+    box-sizing: border-box;
+}
+
+/*这个是右边大框框的定位*/
+.div {
+    /*height 和 width 属性不包括内边距、边框或外边距！
+    它们设置的是元素的内边距、边框和外边距内也就是content的区域的高度/宽度*/
+    width: 420px;
+    height: 510px;
+    position: absolute;
+    top: 12%;
+    left: 67%;
+    border-radius:8px;
+}
+/*元素的下边界，在body里调用这个类时，就遵循这样的规则*/
+.div h1 {       /*主要应用于”课程简介&评论字样“*/
+    /*让文本居左*/
+    text-align: left;
+    margin-top: 0;
+    margin-left: 15px;
+    margin-bottom: 0;
+    color: rgb(120, 66, 227);
+}
+/*简介框*/
+.abs-div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    width: 400px;
+    height: 150px;
+    /*在border外没有线*/
+    outline: none;
+    /*这里形成的是一个圆角框*/
+    border-radius:10px;
+    /*整个框框里的背景颜色*/
+    background-color: rgba(50, 91, 144, 0.2);
+    /*定义如何计算一个元素的总宽度和总高度，是否包含内边距和边框*/
+    /*所以这里是将边框也计算在上述的宽高之中*/
+    box-sizing: border-box;
+    overflow-y: scroll;
+    color: #020202;
+    padding-left: 10px;
+    padding-right: 5px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.abs-div::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+    scrollbar-arrow-color:red;
+
+}
+.abs-div::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    background: rgba(111, 106, 106, 0.748);
+    scrollbar-arrow-color:red;
+}
+.abs-div::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    border-radius: 0;
+    background: rgba(249, 247, 247, 0.1);
+}
+/*原有评论*/
+.ori-div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    width: 400px;
+    height: 245px;
+    /*在border外没有线*/
+    outline: none;
+    /*这里形成的是一个圆角框*/
+    border-radius:10px;
+    /*整个框框里的背景颜色*/
+    background-color: rgba(50, 91, 144, 0.2);
+    /*定义如何计算一个元素的总宽度和总高度，是否包含内边距和边框*/
+    /*所以这里是将边框也计算在上述的宽高之中*/
+    box-sizing: border-box;
+    overflow-y: scroll;
+    color: #020202;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+.ori-div::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+    scrollbar-arrow-color:red;
+
+}
+.ori-div::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    background: rgba(111, 106, 106, 0.748);
+    scrollbar-arrow-color:red;
+}
+.ori-div::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    border-radius: 0;
+    background: rgba(249, 247, 247, 0.1);
+}
+
+/*新建评论*/
+.input-text {
+    width: 780px;
+    height: 50px;
+     /* 实现整个框居中效果 */
+    position: absolute;
+    /*top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置
+    translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置*/
+    left:5%;
+    top:80%;
+    border: none;
+    /* 元素周围的轮廓无效 */
+    outline: none;
+    /* 为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
+    box-sizing: border-box;
+    /*输入框的内边距 上 右 下 左*/
+    padding: 0 16px;
+    /*左右间距让浏览器自己算*/
+    margin: 13px auto;
+    /*这个圆角框的设置加在上面输入框的设置也可*/
+    border-radius: 16px;
+    background-color: rgba(50, 91, 144, 0.2);
+}
+
+.input-text:hover {
+    border: 2.5px solid rgb(65, 65, 224);
+    /*将鼠标悬停在一个 div 元素上，逐步改变表格的宽度从 100px 到 300px*/
+    transition: 0.5s;
+    border-radius: 4px;
+}
+
+/*提交按钮的设置*/
+.input-btn {
+    width: 90px;
+    height: 50px;
+    position: absolute;
+    /*top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置
+    translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置*/
+    left:36.5%;
+    top:80%;
+    border: none;
+    /* 元素周围的轮廓无效 */
+    outline: none;
+    /* 为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
+    box-sizing: border-box;
+    /*输入框的内边距 上 右 下 左*/
+    padding: 0 16px;
+    /*左右间距让浏览器自己算*/
+    margin: 13px auto;
+    border-radius: 20px;
+    color: #fff;
+    /*鼠标放在该位置的时候的光标形状，pointer表示光标呈现为指示链接的指针（一只手）*/
+    cursor: pointer;
+    background-color: rgba(84, 100, 249, 0.8);
+}
+
+.input-btn:hover {
+    font-size: 16px;
+    border-radius: 4px;
+    transition: 0.5s;
+    background-color: rgba(88, 10, 243, 0.8);
+}
+
+/*点赞按钮的设置*/
+.zan-btn {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    left:6%;
+    top:82%;
+    background-color: #00cc00;
+
+	border-width:0px;	/*边框透明*/
+	outline:none;	/*点击后没边框*/
+}
+
+
+.like{
+    position:absolute;
+    left:6%;
+    top:75%;
+    font-size:45px;
+    color:#ccc;
+    cursor:pointer;
+}
+
+.like:hover{
+    color:#f00;
+    transition: 0.5s;
+}

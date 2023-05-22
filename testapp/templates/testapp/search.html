@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>搜索结果</title>
+    <style>
+        .search_input{
+            left:0;
+            top:0;
+            height:60px;
+            width:100%;
+            background-color: #7842e3;
+            z-index: 1000;
+            position: fixed;
+        }
+        .search_box{
+            margin: 7px auto;
+            width:600px;
+            height:42px;
+            border-radius: 30px;
+            border: none;
+            background-color: #e3e3e3;
+            padding: 0 5px 0 20px;
+            outline: none;
+        }
+        .input_text{
+            width:501px;
+            height:40px;
+            background-color:transparent;
+            color: #3a3a3a;
+            outline: none;
+            border: #ffffff;
+            font-size: 16px ;
+        }
+        .search_button {
+            width: 90px;
+            height: 34px;
+            background-color: #ffffff;
+            border: none;
+            outline: none;
+            border-radius: 21px;
+            color: #7842e3;
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .search_button:hover{
+            box-shadow: 0 10px 20px 0 rgba(47,55,213,0.3);
+            transform: scale(1.05);
+            transition: 0.5s;
+        }
+        .course-list {
+            List-style:none;
+        }
+        .course-item{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #efefef;
+            height: 150px;
+            width:1450px;
+            List-style:none;
+            border-radius: 20px;
+        }
+        .course-item:hover{
+            box-shadow: 0 10px 20px 0 rgba(47,55,213,0.3);
+            transform: scale(1.01);
+            transition: 0.5s;
+        }
+        .course-img{
+            height: 150px;
+            width:250px;
+            float:left;
+            border-bottom-left-radius: 20px;
+            border-top-left-radius: 20px;
+        }
+        .course-content{
+            margin-left: 30px;
+            width:1100px;
+            height:150px;
+            float:left;
+            line-height: 150px;
+            font-size: large;
+        }
+        h1{
+            color: rgb(120, 66, 227);
+        }
+    </style>
+</head>
+<body>
+<!-- 搜索框 -->
+<form id="form" action="/search/" method="get">
+    <div class="search_input" id="fixed_roll">
+        <div class="search_box">
+            <input class="input_text" name="q" type="text" placeholder={{ keyword }}>
+            <button type="submit" class="search_button">搜 索</button>
+        </div>
+    </div>
+</form>
+
+<!-- 占位 -->
+<div style="height: 60px"></div>
+
+<ul class="course-list">
+    {% for result in data_list %}
+        <!-- video-item start -->
+        <li class="course-item">
+            <a href={% url 'video_sign' result.id %}>
+                <img class="course-img" src="{{ result.cover_url }}"
+                     alt="{{ result.title }}">
+                <div class="course-content">
+                    {{ result.title }}
+                </div>
+            </a>
+        </li>
+        <!-- course-item end -->
+    {% endfor %}
+</ul>
+</body>
+</html>
